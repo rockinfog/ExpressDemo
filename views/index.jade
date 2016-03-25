@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  #example I am an example!
+  
+  
+  script(src="/react/react.min.js")
+  script(src="/react/react-dom.min.js")
+  script(src="/react/browser.min.js")
+  script(type="text/babel").
+    ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
