@@ -4,10 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var subform = require('./routes/subform');
+var usecookie = require('./routes/usecookie');
+var usesession = require('./routes/usesession');
+
 
 
 var app = express();
@@ -28,8 +32,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('bower_components'));
 
+//这里传入了一个密钥加session id
+app.use(cookieParser('stone'));
+//使用靠就这个中间件
+app.use(session({
+  resave: false, // don't save session if unmodified
+  saveUninitialized: true, // don't create session until something stored
+  secret: 'stone'
+}));
+
+
 app.use('/', routes);
 app.use('/users', users);
+app.use('/subform', subform);
+app.use('/usecookie', usecookie);
+app.use('/usesession', usesession);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

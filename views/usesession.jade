@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1  #{title}
+    
+if(locals.islogin)
+    用户已登录
+else 
+    form(method="post")          
+        nput(type="submit",value="登录")
+     

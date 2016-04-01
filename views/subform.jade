@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1  #{title}
+    
+    form(method="post")
+        lable 用户名  
+        input#txtUserName(type="text" name="username")    
+        lable 密码 
+        input#txtPassword(type="password" name="password") 
+        input(type="submit" value="提交")
+    
+    script(src="/jquery/dist/jquery.min.js")
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
+  

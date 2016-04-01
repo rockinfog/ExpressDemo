@@ -5,12 +5,23 @@ block content
   p Welcome to #{title}
   #example I am an example!
   
+  p.lead Look at Here
+  
+  
+  div(style='height:210px')
+        for img in imgs
+            a(href='images/'+img title=img data-gallery)
+                img(src='images/'+img  class="img-thumbnail" style='width:140px;height:140px;margin:5px' )
+  
+  script(src="/jquery/dist/jquery.min.js")
+  script(src="/bootstrap/dist/js/bootstrap.min.js")
+  
   
   script(src="/react/react.min.js")
   script(src="/react/react-dom.min.js")
   script(src="/react/browser.min.js")
   script(type="text/babel").
     ReactDOM.render(
-        <h1>Hello, world!</h1>,
+        <h1>Hello, react world!</h1>,
         document.getElementById('example')
       );

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1  #{title}
+        
+    if(locals.islogin)
+        |用户已登录
+        form(action="usecookie/quit")
+            input(type="submit",value="退出")
+    else
+        form(method="post")          
+            input(type="submit",value="登录")
+     
